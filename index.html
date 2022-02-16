@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Bg Color 2 2022</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <style>
+        :root{
+            --clr: #000
+        }
+        .dark{
+            --clr: #fff;
+        }
+
+        *{
+            font-family: 'Montserrat';
+            padding: 0;
+            margin: 0;
+            outline: 0;
+            appearance: none;
+            border: 0;
+            box-sizing: border-box; 
+            list-style: none;
+            text-decoration: none;}
+        html,body{width: 100%;height: 100%;}
+        
+        #section{
+            background: #000;
+            display: flex;flex-wrap: wrap;
+            width: 100%;height: 100%;}
+        #s1{width: 50%;height: 50%;background-color:aliceblue;}
+        #s2{width: 50%;height: 50%;background-color:beige;}
+        #s3{width: 50%;height: 50%;background-color:antiquewhite;}
+        #s4{width: 50%;height: 50%;background-color:blanchedalmond;}
+        .a1{
+            top: 50%;left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            position: absolute;
+            flex-direction: column;
+            display: flex;align-items: center;justify-content: center;
+            overflow: hidden;
+            border-radius: 40px;
+            background-color:rgb(255, 255, 255);
+        }
+        #btn{
+            font-size: 1.3rem;
+            font-weight: bold;
+            width: 250px;height: 100px;}
+        .a1:active{transform: translateX(-50%) translateY(-50%) scale(.93);}
+        #color-code{
+            width: 100%;
+            color: var(--clr);text-align: center;
+            margin: 20px;padding: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <section id="section">
+        <div id="s1"></div>
+        <div id="s2"></div>
+        <div id="s3"></div>
+        <div id="s4"></div>
+        <article class="a1">
+            <button id="btn" onclick="changeBgClr()">
+                Change <br>
+                Background Color
+            </button>
+            <div id="color-code" onclick="copy()">Color Code</div>
+        </article>
+    </section>
+    <script type="text/javascript">
+        const cc = document.getElementById("color-code");
+        const section = document.getElementById("section");
+
+        function changeBgClr(){
+            let c1 = '#';
+            let c2 = '#';
+            let c3 = '#';
+            let c4 = '#';
+            c1 += Math.random().toString(16).slice(2,8);//0123456789ABCDEF
+            c2 += Math.random().toString(16).slice(2,8);//0123456789ABCDEF
+            c3 += Math.random().toString(16).slice(2,8);//0123456789ABCDEF
+            c4 += Math.random().toString(16).slice(2,8);//0123456789ABCDEF
+            s1.style.backgroundColor = c1;
+            s2.style.backgroundColor = c2;
+            s3.style.backgroundColor = c3;
+            s4.style.backgroundColor = c4;
+            cc.innerHTML = c1 +', ' + c2 +',<br>'+ c3 +', '+ c4;
+        }
+        function copy(){
+            navigator.clipboard.writeText(cc.innerText).then(function(){alert( cc.innerText + "...is copied!")});
+        }
+    </script>
+</body>
+</html>
